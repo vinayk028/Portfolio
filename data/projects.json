@@ -41,7 +41,7 @@
         "Ubuntu"
       ],
       "image": "/images/projects/Intrusion_Detection.webp",
-      "liveUrl": "https://example.com",
+      "liveUrl": "\not-found",
       "githubUrl": "https://github.com/vinayk028/Intrusion-Detection-System"
     },
     {
@@ -55,7 +55,7 @@
         "Graphics"
       ],
       "image": "/images/projects/SpaceInvaders-Game.gif",
-      "liveUrl": "https://vinay-portfolio.vercel.app/",
+      "liveUrl": "\not-found",
       "githubUrl": "https://github.com/vinayk028/Space-Invaders-master-Game-JAVA-"
     }
   ]
