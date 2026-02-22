@@ -102,31 +102,10 @@ portfolio/
 - **Skill Tags** with hover effects
 - **Responsive Cards** with hover animations
 
-### Skills Section
-**5 Organized Categories:**
-1. **Programming Languages** (7 skills) - C++, Java, Python, C, JavaScript, TypeScript, SQL
-2. **Software Development (Web)** (11 skills) - HTML, CSS, React.js, Next.js, Redux, Zustand, Express.js, RESTful API, GraphQL, WebSocket, JSON
-3. **Databases** (2 skills) - MySQL, MongoDB
-4. **DevOps & Deployment** (7 skills) - Git, GitHub Actions, CI/CD, Docker, Kubernetes, YAML, Perforce
-5. **Tools & Technologies** (4 skills) - Linux, Ubuntu, NetworkMiner, Wireshark
-
-**Skill Icons:**
-- Large icons (32x32px on mobile, 40x40px on desktop)
-- Vibrant colors optimized for dark theme
-- Custom icons: `TbDatabase` for Redux/Zustand, `TbBraces` for JSON
-- Drop shadows for visibility
-- Hover scale effects
-
 ### About Section
 - **Search Bar** - Filter portfolio by domain/skill
 - **6 Filter Categories** - All, Frontend, Backend, AI/ML, Cloud & Data, Embedded
 - **Download Resume Button** - Download icon with action
-
-### Projects Section
-- **3 Project Cards** with images
-- **Tech Tags** with filter integration
-- **Live Demo & GitHub Links**
-- **Hover Effects** with image zoom
 
 ---
 
@@ -277,28 +256,6 @@ case "your-category":
 
 ---
 
-## 📊 Current Content
-
-### Experience (4 Entries)
-1. **Associate Software Engineer** - Light & Wonder India (Sept 2025 - Present)
-2. **Software Engineer Intern** - Light & Wonder India (Mar 2025 - Sept 2025)
-3. **AI Research Intern** - LAM Research Corporation (Nov 2023 - April 2024)
-4. **Amazon ML Summer School** - Amazon (Sept 2023 - Oct 2023)
-
-### Projects (3 Entries)
-1. **Evo-Health** - Healthcare application
-2. **Intrusion Detection** - Security system
-3. **Space Invaders Game** - Game development
-
-### Skills (31 Total)
-- **Programming:** 7 languages
-- **Web Development:** 11 technologies
-- **Databases:** 2 systems
-- **DevOps:** 7 tools
-- **Tools:** 4 technologies
-
----
-
 ## 🎯 Key Features
 
 ### 🔍 Search & Filter System
@@ -322,19 +279,13 @@ case "your-category":
 
 ---
 
-## 🚢 Deployment
-
-### Vercel (Recommended)
+## 🚢 Demo
+<!-- 
+### Vercel 
 1. Push code to GitHub
 2. Import in [Vercel](https://vercel.com)
-3. Deploy automatically
+3. Deploy automatically -->
 
-### Other Platforms
-- **Netlify** - Easy deployment
-- **Railway** - Simple setup
-- **AWS Amplify** - AWS integration
-
----
 
 ## 🔧 Available Scripts
 
@@ -347,29 +298,12 @@ case "your-category":
 
 ---
 
-## 📈 Recent Updates
-
-### ✅ Completed (Feb 2026)
-- ✅ Added 31 skill icons with vibrant colors
-- ✅ Reorganized skills into 5 categories
-- ✅ Implemented search & filter system (6 categories)
-- ✅ Added growth chart icon to Experience header
-- ✅ Unified company logos with growth chart
-- ✅ Hidden scrollbar for cleaner design
-- ✅ Updated About section with Download Resume button
-- ✅ Enlarged skill icons for better visibility
-- ✅ Removed unused images (cleaned up 5 files)
-- ✅ Fixed favicon configuration
-- ✅ Reduced gap in Experience cards
-
----
-
 ## 📄 License
 
 Open source under the **MIT License**.
 
 ---
-
+<!-- 
 ## 👤 Author
 
 **Vinay Kumar**
@@ -379,7 +313,7 @@ Open source under the **MIT License**.
 - 💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
 - 📧 Email: contact@yoursite.com
 
----
+--- -->
 
 ## 🙏 Acknowledgments
 
