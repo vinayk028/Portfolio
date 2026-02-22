@@ -1,0 +1,30 @@
+{
+  "title": "Skills",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Programming Languages",
+      "skills": ["C++", "Java", "Python", "C", "JavaScript", "TypeScript", "SQL"]
+    },
+    {
+      "id": 2,
+      "name": "Software Development (Web)",
+      "skills": ["HTML", "CSS", "React.js", "Next.js", "Redux", "Zustand", "Express.js", "RESTful API", "GraphQL", "WebSocket", "JSON"]
+    },
+    {
+      "id": 3,
+      "name": "Databases",
+      "skills": ["MySQL", "MongoDB"]
+    },
+    {
+      "id": 4,
+      "name": "DevOps & Deployment",
+      "skills": ["Git", "GitHub Actions", "CI/CD", "Docker", "Kubernetes", "YAML", "Perforce"]
+    },
+    {
+      "id": 5,
+      "name": "Tools & Technologies",
+      "skills": ["Linux", "Ubuntu", "NetworkMiner", "Wireshark"]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Get In Touch",
+  "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!",
+  "methods": [
+    {
+      "id": 1,
+      "type": "email",
+      "label": "Email",
+      "value": "thungamittavinaykumar07@gmail.com",
+      "href": "mailto:thungamittavinaykumar07@gmail.com",
+      "icon": "Mail"
+    },
+    {
+      "id": 2,
+      "type": "github",
+      "label": "GitHub",
+      "value": "github.com/vinaykumar",
+      "href": "https://github.com/vinayk028",
+      "icon": "Github"
+    },
+    {
+      "id": 3,
+      "type": "linkedin",
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/vinay-kumar",
+      "href": "https://www.linkedin.com/in/vinay-kumar-thungamitta-35668b252/",
+      "icon": "Linkedin"
+    }
+  ]
+}

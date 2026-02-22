@@ -1,0 +1,10 @@
+{
+  "introduction": "I'm a Software Engineer with expertise in building modern web applications. I love creating elegant solutions to complex problems and continuously learning new technologies. With a strong foundation in both frontend and backend development, I strive to deliver exceptional Product Quality.",
+  "buttons": [
+    {
+      "label": "View Resume",
+      "href": "/resume/Thungamitta_VinayKumar_Resume.pdf",
+      "variant": "outline"
+    }
+  ]
+}
