@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useCallback } from "react"
-import { Search, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import aboutData from "@/data/about.json"
-import { 
-  sectionStyles, 
-  sectionContainerStyles, 
+import { useState, useCallback } from "react";
+import { Search, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import aboutData from "@/data/about.json";
+import {
+  sectionStyles,
+  sectionContainerStyles,
   sectionHeaderStyles,
   buttonGroupStyles,
   searchContainerStyles,
@@ -16,7 +16,7 @@ import {
   filterButtonStyles,
   filterContainerStyles,
   resumeButtonStyles
-} from "@/lib/styles"
+} from "@/lib/styles";
 
 const FILTER_CATEGORIES = [
   { id: "all", label: "All" },
@@ -24,7 +24,7 @@ const FILTER_CATEGORIES = [
   { id: "backend", label: "Backend" },
   { id: "ai", label: "AI/ML" },
   { id: "cloud", label: "Cloud & Data" },
-  { id: "embedded", label: "Embedded" },
+  { id: "embedded", label: "Embedded" }
 ] as const;
 
 interface AboutProps {
@@ -36,24 +36,28 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    onSearch?.(query);
-  }, [onSearch]);
+  const handleSearchChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const query = e.target.value;
+      setSearchQuery(query);
+      onSearch?.(query);
+    },
+    [onSearch]
+  );
 
-  const handleFilterClick = useCallback((filterId: string) => {
-    setActiveFilter(filterId);
-    onFilterChange?.(filterId);
-  }, [onFilterChange]);
+  const handleFilterClick = useCallback(
+    (filterId: string) => {
+      setActiveFilter(filterId);
+      onFilterChange?.(filterId);
+    },
+    [onFilterChange]
+  );
 
   return (
     <section id="about" className={sectionStyles({ background: "default" })}>
       <div className={sectionContainerStyles({ maxWidth: "md" })}>
         <header>
-          <h2 className={sectionHeaderStyles()}>
-            About Me
-          </h2>
+          <h2 className={sectionHeaderStyles()}>About Me</h2>
         </header>
 
         <div className="space-y-8">
@@ -81,7 +85,9 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
                 <button
                   key={category.id}
                   onClick={() => handleFilterClick(category.id)}
-                  className={filterButtonStyles({ active: activeFilter === category.id })}
+                  className={filterButtonStyles({
+                    active: activeFilter === category.id
+                  })}
                   aria-pressed={activeFilter === category.id}
                 >
                   {category.label}
@@ -98,12 +104,12 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
                 variant={button.variant as "default" | "outline"}
                 className="rounded-full"
               >
-                <a href={button.href}>
+                <a href={button.href} target="_blank" rel="noopener noreferrer">
                   {button.label}
                 </a>
               </Button>
             ))}
-            
+
             {/* Download Resume Button */}
             <a
               href="/resume/Thungamitta_VinayKumar_Resume.pdf"
@@ -118,5 +124,5 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -132,7 +132,7 @@ export function Projects({ searchQuery = "", activeFilter = "all" }: ProjectsPro
                     <Button asChild size="sm" className="flex-1">
                       <a
                         href={project.liveUrl}
-                        target="_blank"
+                        target=""
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} live demo`}
                       >
