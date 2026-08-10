@@ -4,29 +4,29 @@
   "certifications": [
     {
       "id": "c1",
-      "title": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services",
-      "logo": "/images/companies/Amazon_Logo.gif",
-      "date": "2024",
+      "title": "Docker Professional Certification",
+      "issuer": "LinkedIn Learning",
+      "logo": "/images/journey/docker.jpg",
+      "date": "2025",
       "credential": "",
       "description": "Foundational understanding of AWS Cloud services, architecture, security, and pricing models.",
-      "skills": ["AWS", "Cloud Computing", "Security"]
+      "skills": ["Containerization", "Docker", "Artifacts"]
     },
     {
       "id": "c2",
-      "title": "Microsoft Azure Fundamentals (AZ-900)",
-      "issuer": "Microsoft",
-      "logo": "",
-      "date": "2023",
+      "title": "Kubernetes Learning Certification ",
+      "issuer": "LinkedIn Learning",
+      "logo": "/images/journey/kubernetes.svg",
+      "date": "2025",
       "credential": "",
-      "description": "Core concepts of cloud computing and Azure services including compute, storage, networking, and identity.",
-      "skills": ["Azure", "Cloud Computing", "Networking"]
+      "description": "Comprehensive knowledge of Kubernetes architecture, deployment strategies, and container orchestration best practices.",
+      "skills": ["Kubernetes", "Container Orchestration", "Cloud Computing", "DevOps"]
     },
     {
       "id": "c3",
-      "title": "Python for Data Science and AI",
+      "title": "Data Analytics with Python",
       "issuer": "IBM / Coursera",
-      "logo": "",
+      "logo": "/images/journey/IBM.jpg",
       "date": "2023",
       "credential": "",
       "description": "Applied Python programming for data analysis, NumPy, Pandas, and foundational AI workflows.",
@@ -34,99 +34,89 @@
     },
     {
       "id": "c4",
-      "title": "Graph Neural Networks Specialization",
-      "issuer": "DeepLearning.AI",
-      "logo": "",
-      "date": "2024",
+      "title": "Complete Git & GitHub ",
+      "issuer": "LinkedIn Learning",
+      "logo": "/images/journey/git.png",
+      "date": "2025",
       "credential": "",
-      "description": "Advanced study of GNNs including message passing, graph classification, and real-world graph analytics.",
-      "skills": ["GNN", "Deep Learning", "Graph Theory"]
+      "description": "Comprehensive understanding of Git version control, GitHub repositories, branching strategies, and collaborative workflows.",
+      "skills": ["Git", "GitHub", "GitHub Actions", "Version Control", "Collaboration", "CI/CD"]
+    },
+    {
+      "id": "c5",
+      "title": "Amazon ML Summer School",
+      "issuer": "Amazon",
+      "logo": "/images/companies/Amazon_logo.gif",
+      "date": "2023",
+      "credential": "",
+      "description": "Foundational understanding of  ML,Deep Learning, Graph Models,  architecture, and applications.",
+      "skills": ["Machine Learning", "CNN", "AI", "Graph Neural Networks", "Deep Learning"]
     }
   ],
   "publications": [
     {
       "id": "p1",
-      "title": "Optimizing Supply Chain Bottlenecks Using Graph Neural Networks and Azure Cosmos DB",
-      "venue": "International Journal of Engineering Research & Technology (IJERT)",
-      "logo": "",
-      "date": "April 2024",
+      "title": "A Hybrid Feature Selection Model for Early Prediction of Metabolic Syndrome",
+      "venue": "IEEE",
+      "logo": "/images/journey/IEEE.jpg",
+      "date": "March 2025",
       "type": "Journal",
-      "description": "Proposed a GNN-based framework integrated with Azure Cosmos DB (Gremlin API) to model and resolve supply chain bottlenecks, achieving significant improvements in data traceability and decision latency.",
-      "tags": ["GNN", "Azure Cosmos DB", "Graph Databases", "Supply Chain"]
+      "description": "This paper aims to address these challenges by identifying optimal feature subsets required for the early prediction of MetS.",
+      "tags": ["GNN", "Machine Learning", "Genetic Algorithms", "Metabolic Syndrome"]
     },
     {
       "id": "p2",
-      "title": "Embedded UI Optimization in Gaming Platforms Using LVGL Framework",
-      "venue": "National Conference on Embedded Systems & IoT (NCESI)",
-      "logo": "",
-      "date": "2025",
+      "title": "Early Prediction and Personalized Healthcare Assistant for Metabolic Syndrome",
+      "venue": "IEEE",
+      "logo": "/images/journey/IEEE.jpg",
+      "date": "2026",
       "type": "Conference",
-      "description": "Investigated modular UI design patterns using the LVGL framework for resource-constrained embedded systems, focusing on rendering performance and reusable component architectures.",
-      "tags": ["LVGL", "Embedded Systems", "C++", "UI Design"]
+      "description": "This paper presents a comprehensive system for predicting, classifying, and managing Metabolic Syndrome (MetS) by integrating advanced Machine Learning (ML) and probabilistic modelling techniques",
+      "tags": ["Evolutionary Algorithms", "Genetic Algorithms", "Bayesian Networks", "Correlation Analysis", "Wrapper Methods"]
     }
   ],
   "workshops": [
     {
       "id": "w1",
-      "title": "Full-Stack Development Bootcamp",
-      "organizer": "JNTUH Innovation Hub",
-      "logo": "",
-      "date": "Oct 2022",
-      "duration": "3 Days",
-      "description": "Hands-on workshop covering React.js, Node.js, REST APIs, and MongoDB for building full-stack web applications.",
-      "skills": ["React.js", "Node.js", "MongoDB", "REST API"]
+      "title": "Gen AI Workshop",
+      "organizer": "IISC Bangalore",
+      "logo": "/images/journey/IISC.jpg",
+      "date": "June 2025",
+      "duration": "1 Day",
+      "description": "Hands-on workshop on Generative AI, covering foundational concepts, model architectures, and practical applications in various domains.",
+      "skills": ["Generative AI", "Deep Learning", "Neural Networks", "AI Applications", "Natural Language Processing", "Hugging Face"]
     },
     {
       "id": "w2",
-      "title": "Cloud & DevOps Fundamentals Workshop",
-      "organizer": "Microsoft Student Partner Program",
-      "logo": "",
-      "date": "Mar 2023",
-      "duration": "2 Days",
-      "description": "Practical sessions on Azure services, containerization with Docker, and CI/CD pipeline basics with GitHub Actions.",
-      "skills": ["Azure", "Docker", "CI/CD", "GitHub Actions"]
-    },
-    {
-      "id": "w3",
-      "title": "AI & Machine Learning Hands-On Workshop",
-      "organizer": "LAM Research Corporation",
-      "logo": "/images/companies/Lam_Research-Logo.jpg",
-      "date": "Dec 2023",
-      "duration": "1 Day",
-      "description": "Internal deep-dive into applied ML techniques, feature engineering, and model evaluation strategies used in semiconductor manufacturing data.",
-      "skills": ["Machine Learning", "Python", "Feature Engineering"]
-    },
-    {
-      "id": "w4",
-      "title": "Agile & Scrum Practitioner Workshop",
-      "organizer": "Light & Wonder",
-      "logo": "/images/companies/light-and-wonder-logo.webp",
-      "date": "Apr 2025",
-      "duration": "1 Day",
-      "description": "Practical training on Agile methodology, sprint planning, backlog refinement, and cross-team collaboration within a software engineering context.",
-      "skills": ["Agile", "Scrum", "Sprint Planning"]
+      "title": "Kubernetes Workshop",
+      "organizer": "Microsoft, Bangalore",
+      "logo": "/images/journey/Microsoft_logo.svg.webp",
+      "date": "July 2025",
+      "duration": "1 Days",
+      "description": "Hands-on workshop on Kubernetes, covering container orchestration, deployment strategies, and best practices for managing containerized applications in production environments and Entire CI/CD pipeline, with a discussions of different deployment strategies, scaling, and monitoring techniques.",
+      "skills": ["GitOPS", "Flux", "ArgoCD", "Kubernetes", "Container Orchestration", "DevOps", "CI/CD", "Docker"]
     }
   ],
   "hackathons": [
     {
       "id": "h1",
-      "title": "Smart India Hackathon (SIH)",
-      "organizer": "Government of India",
-      "logo": "",
-      "date": "2022",
-      "result": "Finalist",
-      "description": "Developed a real-time grievance redressal portal using React.js and Node.js that routes complaints intelligently using NLP classification.",
-      "skills": ["React.js", "Node.js", "NLP", "REST API"]
+      "title": "Amazon Machine Learning Challenge",
+      "organizer": "Amazon",
+      "logo": "/images/companies/Amazon_logo.gif",
+      "date": "2024",
+      "result": "",
+      "description": "Developed and Solved a Real-World Problem using Machine Learning and Deep Learning techniques, achieving a 90% accuracy on test data.Problem statement was to predict the probability of a customer making a purchase based on their browsing history and demographic information.",
+      "skills": ["Machine Learning", "Deep Learning", "NLP", "Python"]
     },
     {
       "id": "h2",
-      "title": "College-Level Ideathon",
-      "organizer": "JNTUH",
-      "logo": "",
-      "date": "2023",
-      "result": "1st Place",
-      "description": "Built an AI-powered crop disease detection mobile app using TensorFlow Lite and React Native, achieving 94% accuracy on test data.",
-      "skills": ["TensorFlow Lite", "React Native", "AI", "Mobile"]
+      "title": "Flipkart Grid 6.0",
+      "organizer": "Flipkart",
+      "logo": "/images/journey/flipkart.png",
+      "date": "2024",
+      "result": "",
+      "description": "Tackled and Developed a clean Solution for the Problem statement that was to Develop an AI model that dynamically builds precise brand/product size charts.Build a database to process user physical measurements (height, weight, chest, hip, waist, inseam, etc.) and generate a personalized size chart for each user. The model should take into account the user's body shape, size preferences, and brand-specific sizing information to provide accurate recommendations.",
+      "skills": ["AI", "PostgreSQL", "Redis", "PyTorch", "Scikit-learn", "XGBoost", "ReactJS"]
     }
   ]
 }
