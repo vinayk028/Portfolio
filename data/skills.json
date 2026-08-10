@@ -9,7 +9,7 @@
     {
       "id": 2,
       "name": "Software Development (Web)",
-      "skills": ["HTML", "CSS", "React.js", "Next.js", "Redux", "Zustand", "Express.js", "RESTful API", "GraphQL", "WebSocket", "JSON"]
+      "skills": ["HTML", "CSS", "React.js", "Next.js", "Node.js", "Redux", "Zustand", "Express.js", "RESTful API", "WebSocket", "JSON"]
     },
     {
       "id": 3,

@@ -5,14 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Github, Linkedin, CheckCircle, Home, RefreshCw, Loader2 } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
+import { Mail, Github, Linkedin, CheckCircle, Home, RefreshCw } from "lucide-react";
 import contactData from "@/data/contact.json";
-import { 
-  sectionStyles, 
-  sectionContainerStyles, 
+import {
+  sectionStyles,
+  sectionContainerStyles,
   sectionHeaderStyles,
-  contactIconWrapperStyles,
-  contactIconStyles,
   contactLinkStyles,
   successIconWrapperStyles
 } from "@/lib/styles";
@@ -51,6 +50,10 @@ const iconMap = {
   Github,
   Linkedin
 } as const;
+
+// Email address the contact form sends to (single source of truth: contact.json)
+const CONTACT_EMAIL =
+  contactData.methods.find((m) => m.type === "email")?.value ?? "";
 
 // Color map for contact icons
 const iconColorMap = {
@@ -121,10 +124,18 @@ function SuccessMessage({ onSendAnother }: SuccessMessageProps) {
 
       {/* Success Text */}
       <h3 className="text-2xl font-bold text-foreground mb-2">
-        Message Sent Successfully!
+        Your Message Is Ready!
       </h3>
       <p className="text-muted-foreground text-sm mb-8 max-w-xs">
-        Thank you for reaching out. I'll get back to you as soon as possible.
+        Your email app should have opened with the message pre-filled — just
+        hit send. If it didn&apos;t open, email me directly at{" "}
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="text-primary hover:underline break-all"
+        >
+          {CONTACT_EMAIL}
+        </a>
+        .
       </p>
 
       {/* Action Buttons */}
@@ -161,11 +172,10 @@ export function Contact() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Validate form
     const validationErrors = validateForm(formData);
     setErrors(validationErrors);
@@ -175,15 +185,14 @@ export function Contact() {
       return;
     }
 
-    // Simulate form submission
-    setIsSubmitting(true);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
+    // Open the visitor's email app with the message pre-filled
+    const subject = `Portfolio contact from ${formData.name.trim()}`;
+    const body = `${formData.message.trim()}\n\n— ${formData.name.trim()} (${formData.email.trim()})`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
     setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
   };
 
   const handleChange = (
@@ -208,17 +217,19 @@ export function Contact() {
     <section id="contact" className={sectionStyles({ background: "mutedDark" })}>
       <div className={sectionContainerStyles({ maxWidth: "md" })}>
         {/* HEADER */}
-        <header>
-          <h2 className={sectionHeaderStyles()}>
-            {contactData.title}
-          </h2>
-        </header>
+        <Reveal>
+          <header>
+            <h2 className={sectionHeaderStyles()}>
+              {contactData.title}
+            </h2>
+          </header>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <Reveal delay={0.1} className="grid md:grid-cols-2 gap-12">
           {/* LEFT CONTENT */}
           <article className="grid gap-8">
             <div className="grid gap-4">
-              <h3 className="text-2xl font-bold">Let's work together</h3>
+              <h3 className="text-2xl font-bold">Let&apos;s work together</h3>
               <p className="text-muted-foreground leading-relaxed">
                 {contactData.description}
               </p>
@@ -265,7 +276,7 @@ export function Contact() {
           </article>
 
           {/* RIGHT FORM / SUCCESS MESSAGE */}
-          <Card className="bg-background border border-border/40">
+          <Card className="glow-border glow-emerald bg-background border border-border/40">
             <CardContent className="p-6">
               {isSubmitted ? (
                 <SuccessMessage onSendAnother={handleSendAnother} />
@@ -284,7 +295,6 @@ export function Contact() {
                       className={errors.name ? "border-red-500 focus-visible:ring-red-500" : ""}
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? "name-error" : undefined}
-                      disabled={isSubmitting}
                     />
                     {errors.name && (
                       <p id="name-error" className="text-xs text-red-500">
@@ -307,7 +317,6 @@ export function Contact() {
                       className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? "email-error" : undefined}
-                      disabled={isSubmitting}
                     />
                     {errors.email && (
                       <p id="email-error" className="text-xs text-red-500">
@@ -330,7 +339,6 @@ export function Contact() {
                       className={errors.message ? "border-red-500 focus-visible:ring-red-500" : ""}
                       aria-invalid={!!errors.message}
                       aria-describedby={errors.message ? "message-error" : undefined}
-                      disabled={isSubmitting}
                     />
                     {errors.message && (
                       <p id="message-error" className="text-xs text-red-500">
@@ -339,25 +347,14 @@ export function Contact() {
                     )}
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    className="w-full rounded-full mt-2"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
+                  <Button type="submit" className="w-full rounded-full mt-2">
+                    Send Message
                   </Button>
                 </form>
               )}
             </CardContent>
           </Card>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

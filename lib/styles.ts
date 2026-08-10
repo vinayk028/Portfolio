@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 /*                              SECTION STYLES                                */
 /* -------------------------------------------------------------------------- */
 
-export const sectionStyles = cva("py-24 px-4", {
+export const sectionStyles = cva("py-24 px-4 scroll-mt-20", {
   variants: {
     background: {
       default: "bg-background",
@@ -39,38 +39,12 @@ export const sectionHeaderStyles = cva(
 /*                               CARD STYLES                                  */
 /* -------------------------------------------------------------------------- */
 
-export const cardStyles = cva(
-  "transition-all duration-300",
-  {
-    variants: {
-      hover: {
-        default: "hover:shadow-lg hover:-translate-y-1",
-        strong: "hover:shadow-2xl hover:-translate-y-2",
-      },
-      border: {
-        default: "",
-        visible: "border border-border/40",
-        accent: "hover:border-accent/50",
-        primary: "hover:border-primary/30 border border-border/40",
-      },
-    },
-    defaultVariants: {
-      hover: "default",
-      border: "default",
-    },
-  }
-);
-
 export const projectCardStyles = cva(
-  "overflow-hidden h-full group bg-muted/30 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/50 transition-all duration-300 border border-border/40"
-);
-
-export const skillCardStyles = cva(
-  "h-full bg-background hover:shadow-lg hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 border border-border/40"
+  "glow-border-hover glow-emerald overflow-hidden h-full group bg-muted/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-white/15"
 );
 
 export const experienceCardStyles = cva(
-  "ml-8 bg-background hover:shadow-xl hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 border border-border/40"
+  "glow-border-hover glow-emerald ml-8 bg-background hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/15"
 );
 
 /* -------------------------------------------------------------------------- */
@@ -78,7 +52,7 @@ export const experienceCardStyles = cva(
 /* -------------------------------------------------------------------------- */
 
 export const heroCardStyles = cva(
-  "max-w-[55rem] w-full bg-background border border-border/40 mb-8 mt-30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/40"
+  "glow-border-hover glow-frost max-w-[55rem] w-full bg-background border border-white/15 mb-8 mt-30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
 );
 
 export const profileImageWrapperStyles = cva(
@@ -93,10 +67,6 @@ export const heroSubtitleStyles = cva(
   "text-sm md:text-base text-muted-foreground font-bold tracking-wider"
 );
 
-export const heroTagContainerStyles = cva(
-  "flex flex-wrap items-center justify-center gap-3 mt-4"
-);
-
 export const resumeButtonStyles = cva(
   "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg"
 );
@@ -107,10 +77,6 @@ export const resumeButtonStyles = cva(
 
 export const navLinkStyles = cva(
   "px-5 py-2 rounded-xl text-foreground/90 bg-white/3 backdrop-blur-md transition-all duration-300 hover:bg-white/15 hover:text-foreground active:scale-95"
-);
-
-export const mobileNavLinkStyles = cva(
-  "block text-sm font-medium hover:text-primary"
 );
 
 /* -------------------------------------------------------------------------- */
@@ -128,7 +94,7 @@ export const searchContainerStyles = cva(
 );
 
 export const searchInputWrapperStyles = cva(
-  "relative flex items-center w-full bg-muted/30 border border-border/60 rounded-full shadow-lg hover:shadow-xl hover:border-primary/40 transition-all duration-300 overflow-hidden"
+  "glow-border-focus relative flex items-center w-full bg-muted/30 border border-border/60 rounded-full shadow-lg hover:shadow-xl hover:border-primary/40 transition-all duration-300"
 );
 
 export const searchInputStyles = cva(
@@ -182,18 +148,6 @@ export const footerStyles = cva(
 );
 
 /* -------------------------------------------------------------------------- */
-/*                              IMAGE STYLES                                  */
-/* -------------------------------------------------------------------------- */
-
-export const projectImageStyles = cva(
-  "relative h-52 overflow-hidden bg-muted flex items-center justify-center"
-);
-
-export const projectImageInnerStyles = cva(
-  "object-contain group-hover:scale-105 transition-transform duration-300"
-);
-
-/* -------------------------------------------------------------------------- */
 /*                            TIMELINE STYLES                                 */
 /* -------------------------------------------------------------------------- */
 
@@ -209,14 +163,6 @@ export const timelineDotStyles = cva(
 /*                            CONTACT STYLES                                  */
 /* -------------------------------------------------------------------------- */
 
-export const contactIconWrapperStyles = cva(
-  "shrink-0 rounded-full bg-primary/10 p-3 transition-all duration-300 hover:bg-primary/20 hover:scale-110"
-);
-
-export const contactIconStyles = cva(
-  "h-5 w-5 text-primary"
-);
-
 export const contactLinkStyles = cva(
   "text-sm text-muted-foreground hover:text-primary transition-colors break-all"
 );
@@ -228,8 +174,6 @@ export const contactLinkStyles = cva(
 export const projectGridStyles = cva(
   "grid gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
 );
-
-export const skillGridStyles = cva("grid sm:grid-cols-2 lg:grid-cols-3 gap-6");
 
 /* -------------------------------------------------------------------------- */
 /*                           SUCCESS MESSAGE STYLES                           */
@@ -244,6 +188,5 @@ export const successIconWrapperStyles = cva(
 /* -------------------------------------------------------------------------- */
 
 export type SectionStylesProps = VariantProps<typeof sectionStyles>;
-export type CardStylesProps = VariantProps<typeof cardStyles>;
 export type HeaderStylesProps = VariantProps<typeof headerStyles>;
 export type FilterButtonStylesProps = VariantProps<typeof filterButtonStyles>;

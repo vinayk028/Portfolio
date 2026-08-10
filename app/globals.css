@@ -76,8 +76,8 @@
 }
 
 @theme inline {
-  --font-sans: Calibri, "Trebuchet MS", sans-serif;
-  --font-mono: Calibri, "Trebuchet MS", monospace;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -122,7 +122,6 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    font-family: Calibri, "Trebuchet MS", sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -140,5 +139,155 @@
   * {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       ANIMATED GRADIENT BORDER                             */
+/*                                                                            */
+/* A conic gradient masked down to a thin ring around the element, rotated    */
+/* by animating a registered custom property (--glow-angle). The mask means   */
+/* only the ring itself repaints each frame — the element's content is        */
+/* untouched.                                                                 */
+/*                                                                            */
+/* Classes:                                                                   */
+/*   .glow-border        always-on animated ring (default "mint" palette)     */
+/*   .glow-border-hover  ring appears only while hovered (content cards)      */
+/*   .glow-border-focus  ring appears only while focused (search box)         */
+/*   .glow-emerald       palette modifier: emerald, mint & sky                */
+/*   .glow-frost         palette modifier: white & light green (profile box)  */
+/*                                                                            */
+/* Tuning:                                                                    */
+/*   --glow-speed   full rotation time (lower = faster)                       */
+/*   --glow-width   ring thickness                                            */
+/*   --glow-c1..c4  the palette (the first color repeats as the last conic    */
+/*                  stop so the loop is seamless)                             */
+/* Override globally here, or per element:  style={{ "--glow-speed": "8s" }}  */
+/* -------------------------------------------------------------------------- */
+
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  /* Mint palette (default) — nav links, journey tabs, search bar.
+     Pale light green with a soft white glint: 3 of the 4 stops are
+     green (~75% dominant), one is white. */
+  --glow-c1: #a7f3d0; /* pale mint         */
+  --glow-c2: #bbf7d0; /* pale green        */
+  --glow-c3: #f8fafc; /* soft white        */
+  --glow-c4: #86efac; /* light green       */
+  --glow-width: 1.5px;
+  --glow-speed: 5s;
+}
+
+/* Emerald palette — experience, project, skills & journey cards */
+.glow-emerald {
+  --glow-c1: #10b981; /* emerald          */
+  --glow-c2: #5eead4; /* aqua mint        */
+  --glow-c3: #38bdf8; /* sky blue         */
+  --glow-c4: #34d399; /* spring green     */
+}
+
+/* Frost palette — profile box only: a soft white & light-green shimmer */
+.glow-frost {
+  --glow-c1: #f8fafc; /* frost white      */
+  --glow-c2: #86efac; /* light green      */
+  --glow-c3: #e2e8f0; /* silver white     */
+  --glow-c4: #6ee7b7; /* soft mint        */
+}
+
+@keyframes glow-spin {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+.glow-border,
+.glow-border-hover,
+.glow-border-focus {
+  position: relative;
+}
+
+.glow-border::after,
+.glow-border-hover::after,
+.glow-border-focus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--glow-width);
+  background: conic-gradient(
+    from var(--glow-angle),
+    var(--glow-c1),
+    var(--glow-c2),
+    var(--glow-c3),
+    var(--glow-c4),
+    var(--glow-c1)
+  );
+  /* Punch out the middle so only the ring remains */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: glow-spin var(--glow-speed) linear infinite;
+}
+
+/* Hover variant: the element keeps its normal static border at rest —
+   the animated ring cross-fades in while hovered (content cards).
+   The static border-color fades out in sync (animated by the element's own
+   Tailwind `transition-all`), so the white glass border melts smoothly into
+   the animated one and back. */
+.glow-border-hover:hover {
+  border-color: transparent;
+}
+
+.glow-border-hover::after {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation-play-state: paused;
+}
+
+.glow-border-hover:hover::after {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* Focus variant: ring is invisible (and paused) until the element,
+   or anything inside it, receives focus — used by the About search box */
+.glow-border-focus::after {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation-play-state: paused;
+}
+
+.glow-border-focus:focus-within::after {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* Fallback: browsers without mask-composite skip the ring entirely —
+   the elements' normal static borders remain and layout is unaffected */
+@supports not ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+  .glow-border::after,
+  .glow-border-hover::after,
+  .glow-border-focus::after {
+    display: none;
+  }
+}
+
+/* Accessibility: show the gradient but stop the motion */
+@media (prefers-reduced-motion: reduce) {
+  .glow-border::after,
+  .glow-border-hover::after,
+  .glow-border-focus::after {
+    animation: none;
   }
 }

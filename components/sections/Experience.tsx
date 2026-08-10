@@ -7,8 +7,10 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/ui/reveal";
 import { Briefcase, Calendar } from "lucide-react";
 import experienceData from "@/data/experience.json";
+import { matchesFilter, matchesSearch } from "@/lib/filters";
 import {
   sectionStyles,
   sectionContainerStyles,
@@ -39,128 +41,28 @@ export function Experience({
 }: ExperienceProps) {
   // Filter experience based on search query and active filter
   const filteredExperience = experienceData.items.filter(
-    (exp: ExperienceItem) => {
-      const searchLower = searchQuery.toLowerCase();
-      const matchesSearch =
-        searchQuery === "" ||
-        exp.role.toLowerCase().includes(searchLower) ||
-        exp.company.toLowerCase().includes(searchLower) ||
-        (Array.isArray(exp.description)
-          ? exp.description.some((desc) =>
-              desc.toLowerCase().includes(searchLower)
-            )
-          : exp.description.toLowerCase().includes(searchLower)) ||
-        (exp.skills &&
-          exp.skills.some((skill) =>
-            skill.toLowerCase().includes(searchLower)
-          ));
-
-      if (activeFilter === "all") {
-        return matchesSearch;
-      }
-
-      const matchesFilter =
-        exp.skills &&
-        exp.skills.some((skill) => {
-          const skillLower = skill.toLowerCase();
-          switch (activeFilter) {
-            case "frontend":
-              return [
-                "react",
-                "next.js",
-                "vue",
-                "angular",
-                "css",
-                "tailwind",
-                "html",
-                "javascript",
-                "typescript",
-                "redux",
-                "sass",
-                "figma",
-                "lvgl",
-                "ui",
-                "ux"
-              ].some((t) => skillLower.includes(t));
-            case "backend":
-              return [
-                "node",
-                "express",
-                "python",
-                "java",
-                "api",
-                "database",
-                "mongodb",
-                "postgresql",
-                "sql",
-                "graphql",
-                "rest",
-                "docker",
-                "backend",
-                "c++",
-                "debugging"
-              ].some((t) => skillLower.includes(t));
-            case "ai":
-              return [
-                "ai",
-                "ml",
-                "machine learning",
-                "deep learning",
-                "reinforcement learning",
-                "tensorflow",
-                "pytorch",
-                "data visualization",
-                "gnn",
-                "probabilistic",
-                "graphical models"
-              ].some((t) => skillLower.includes(t));
-            case "cloud":
-              return [
-                "aws",
-                "azure",
-                "gcp",
-                "cloud",
-                "cosmos",
-                "graphdb",
-                "redis",
-                "kafka",
-                "docker",
-                "kubernetes",
-                "microservices",
-                "gremlin"
-              ].some((t) => skillLower.includes(t));
-            case "embedded":
-              return [
-                "c++",
-                "lvgl",
-                "embedded",
-                "firmware",
-                "iot",
-                "hardware",
-                "rtos"
-              ].some((t) => skillLower.includes(t));
-            default:
-              return true;
-          }
-        });
-
-      return matchesSearch && matchesFilter;
-    }
+    (exp: ExperienceItem) =>
+      matchesSearch(
+        [exp.role, exp.company, exp.description, exp.skills],
+        searchQuery
+      ) && matchesFilter(exp.skills ?? [], activeFilter)
   );
 
   return (
     <section id="experience" className={sectionStyles({ background: "muted" })}>
       <div className={sectionContainerStyles({ maxWidth: "md" })}>
-        <header className="text-center space-y-4">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <Briefcase className="h-8 w-8 text-primary" />
-          </div>
-          <h2 className={sectionHeaderStyles()}>{experienceData.title}</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            My professional journey and the companies I&apos;ve had the
-            privilege to work with.
-          </p>
-        </header>
+        <Reveal>
+          <header className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <Briefcase className="h-8 w-8 text-primary" />
+            </div>
+            <h2 className={sectionHeaderStyles()}>{experienceData.title}</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              My professional journey and the companies I&apos;ve had the
+              privilege to work with.
+            </p>
+          </header>
+        </Reveal>
 
         {filteredExperience.length === 0 ? (
           <div className="text-center py-12">
@@ -179,6 +81,7 @@ export function Experience({
                   {/* Timeline dot */}
                   <div className={timelineDotStyles()} aria-hidden="true" />
 
+                  <Reveal delay={Math.min(index * 0.08, 0.24)}>
                   <Card
                     className={`${experienceCardStyles()} group-hover:shadow-2xl`}
                   >
@@ -192,7 +95,7 @@ export function Experience({
                               alt={`${exp.company} logo`}
                               width={64}
                               height={64}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-contain"
                             />
                           </div>
                         )}
@@ -247,6 +150,7 @@ export function Experience({
                       )}
                     </CardContent>
                   </Card>
+                  </Reveal>
                 </li>
               ))}
             </ul>

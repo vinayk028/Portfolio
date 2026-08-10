@@ -4,19 +4,25 @@
     {
       "id": "1",
       "role": "Associate Software Engineer",
-      "company": "Light & Wonder India.",
+      "company": "Light & Wonder India",
       "logo": "/images/companies/light-and-wonder-logo.webp",
       "period": "Sept 2025 - Present",
-      "description": "Developing a reusable and scalable Common UI using LVGL framework, focusing on modular design, performance optimization and maintainability across embedded platforms.",
+      "description": [
+        "Developed a high-performance GUI using LVGL for device flash management, featuring reusable UI components, WebSocket communication, and support for component installation, log management, and system configuration reducing memory footprint by 40% and improving GUI rendering performance by 60%.",
+        "Resolved critical defects in ArgOS through systematic debugging, log analysis and leveraged an AI-powered workflow integrating GitHub Copilot with Jira, logs, and codebase context to perform root-cause analysis and generate targeted fixes, reducing average bug resolution time by 60%"
+      ],
+
       "skills": [
         "React.js",
-        "Redux",
+        "WebSocket",
         "TypeScript",
         "C++",
         "LVGL",
         "Debugging",
         "Agile Methodologies",
-        "Backend Development"
+        "Docker",
+        "RabbitMQ",
+        "Unity"
       ]
     },
     {
@@ -26,19 +32,17 @@
       "logo": "/images/companies/light-and-wonder-logo.webp",
       "period": "Mar 2025 - Sept 2025",
       "description": [
-        "Worked on backend system components, improving performance and system integration in gaming platforms",
-        "Debugged and enhanced OS-level and embedded system modules, ensuring stable interactions between.",
-        "Collaborated with engineers across teams to analyze issues, implement fixes and validate solutions through testing and CI/CD pipelines."
+        "Developed 15+ automated test scenarios covering game cycles, event validations, and meter flows, improving test coverage and early defect detection by 40%.",
+        "Resolved critical build warnings and major bugs in the ArgOS codebase through extensive debugging, log analysis, and root-cause analysis, resulting in a 20% improvement in overall system stability and response handling."
       ],
       "skills": [
         "React.js",
         "Redux",
         "TypeScript",
         "C++",
-        "LVGL",
         "Debugging",
-        "Agile Methodologies",
-        "Backend Development"
+        "Backend Development",
+        "MicroServices"
       ]
     },
     {
@@ -52,7 +56,7 @@
         "Microsoft Azure",
         "Azure Cosmos DB",
         "GraphDB",
-        "GremilQueryLanguage",
+        "Gremlin Query Language",
         "GNN",
         "Data Visualization",
         "Collaboration"

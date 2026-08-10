@@ -4,7 +4,7 @@
     {
       "id": "1",
       "title": "Evo-Health",
-      "description": "Comprehensive Metabolic Syndrome Prediction  and fitness platform with personalized workout plans, nutrition tracking.",
+      "description": "Comprehensive metabolic syndrome prediction and fitness platform with personalized workout plans and nutrition tracking.",
       "tags": [
         "Machine Learning",
         "Genetic Algorithm",
@@ -19,17 +19,17 @@
         "JWT Authentication",
         "RESTful APIs",
         "Python",
-        "flask",
-        "pgmy"
+        "Flask",
+        "pgmpy"
       ],
       "image": "/images/projects/Evo-Health.png",
-      "liveUrl": "\not-found",
+      "liveUrl": "",
       "githubUrl": "https://github.com/vinayk028/Metabolic-Syndrome-Prediction-and-Personalized-HealthCare-Recommendation"
     },
     {
       "id": "2",
       "title": "Intrusion Detection System",
-      "description": " A Real time Network Based Intrusion Detection System  that Analyses the network traffic in LAN Network and detects the Intruder with the help of Security Onion.",
+      "description": "A real-time network-based Intrusion Detection System that analyses LAN network traffic and detects intruders with the help of Security Onion.",
       "tags": [
         "Computer Networks",
         "Security",
@@ -41,13 +41,13 @@
         "Ubuntu"
       ],
       "image": "/images/projects/Intrusion_Detection.webp",
-      "liveUrl": "\not-found",
+      "liveUrl": "",
       "githubUrl": "https://github.com/vinayk028/Intrusion-Detection-System"
     },
     {
       "id": "3",
       "title": "Space Invaders Game",
-      "description": "A classic arcade game where players control a spaceship to defend against waves of alien invaders. Developed using Java  for graphics.",
+      "description": "A classic arcade game where players control a spaceship to defend against waves of alien invaders. Developed using Java for graphics.",
       "tags": [
         "Java",
         "Game Development",
@@ -55,7 +55,7 @@
         "Graphics"
       ],
       "image": "/images/projects/SpaceInvaders-Game.gif",
-      "liveUrl": "\not-found",
+      "liveUrl": "",
       "githubUrl": "https://github.com/vinayk028/Space-Invaders-master-Game-JAVA-"
     }
   ]

@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { Reveal } from "@/components/ui/reveal"
 import skillsData from "@/data/skills.json"
 import { getSkillIcon, getSkillColor } from "@/lib/skill-icons"
 import { 
@@ -13,14 +14,17 @@ export function Skills() {
   return (
     <section id="skills" className={sectionStyles({ background: "muted" })}>
       <div className={sectionContainerStyles({ maxWidth: "lg" })}>
-        <header>
-          <h2 className={sectionHeaderStyles()}>
-            {skillsData.title}
-          </h2>
-        </header>
+        <Reveal>
+          <header>
+            <h2 className={sectionHeaderStyles()}>
+              {skillsData.title}
+            </h2>
+          </header>
+        </Reveal>
 
         {/* Single full-width card with same bg as Experience cards */}
-        <Card className="h-full bg-background hover:shadow-lg hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 border border-border/40">
+        <Reveal delay={0.1}>
+        <Card className="glow-border-hover glow-emerald h-full bg-background hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-white/15">
           <CardContent className="p-8">
             {skillsData.categories.map((category, index) => (
               <div key={category.id}>
@@ -63,6 +67,7 @@ export function Skills() {
             ))}
           </CardContent>
         </Card>
+        </Reveal>
       </div>
     </section>
   )

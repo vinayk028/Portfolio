@@ -9,9 +9,11 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/ui/reveal";
 import { ExternalLink, Github } from "lucide-react";
 import projectsData from "@/data/projects.json";
-import { 
+import { matchesFilter, matchesSearch } from "@/lib/filters";
+import {
   sectionStyles, 
   sectionContainerStyles, 
   sectionHeaderStyles,
@@ -26,46 +28,24 @@ interface ProjectsProps {
 
 export function Projects({ searchQuery = "", activeFilter = "all" }: ProjectsProps) {
   // Filter projects based on search query and active filter
-  const filteredProjects = projectsData.items.filter((project) => {
-    const searchLower = searchQuery.toLowerCase();
-    const matchesSearch = searchQuery === "" || 
-      project.title.toLowerCase().includes(searchLower) ||
-      project.description.toLowerCase().includes(searchLower) ||
-      project.tags.some(tag => tag.toLowerCase().includes(searchLower));
-    
-    if (activeFilter === "all") {
-      return matchesSearch;
-    }
-    
-    const matchesFilter = project.tags.some(tag => {
-      const tagLower = tag.toLowerCase();
-      switch (activeFilter) {
-        case "frontend":
-          return ["react", "next.js", "vue", "angular", "css", "tailwind", "html", "javascript", "typescript", "redux", "sass", "figma", "lvgl", "ui", "ux"].some(t => tagLower.includes(t));
-        case "backend":
-          return ["node", "express", "python", "java", "api", "database", "mongodb", "postgresql", "sql", "graphql", "rest", "docker", "backend", "c++", "debugging"].some(t => tagLower.includes(t));
-        case "ai":
-          return ["ai", "ml", "machine learning", "deep learning", "reinforcement learning", "tensorflow", "pytorch", "data visualization", "gnn", "probabilistic", "graphical models"].some(t => tagLower.includes(t));
-        case "cloud":
-          return ["aws", "azure", "gcp", "cloud", "cosmos", "graphdb", "redis", "kafka", "docker", "kubernetes", "microservices", "gremlin"].some(t => tagLower.includes(t));
-        case "embedded":
-          return ["c++", "lvgl", "embedded", "firmware", "iot", "hardware", "rtos"].some(t => tagLower.includes(t));
-        default:
-          return true;
-      }
-    });
-    
-    return matchesSearch && matchesFilter;
-  });
+  const filteredProjects = projectsData.items.filter(
+    (project) =>
+      matchesSearch(
+        [project.title, project.description, project.tags],
+        searchQuery
+      ) && matchesFilter(project.tags, activeFilter)
+  );
 
   return (
     <section id="projects" className={sectionStyles({ background: "default" })}>
       <div className={sectionContainerStyles({ maxWidth: "xl" })}>
-        <header>
-          <h2 className={sectionHeaderStyles()}>
-            {projectsData.title}
-          </h2>
-        </header>
+        <Reveal>
+          <header>
+            <h2 className={sectionHeaderStyles()}>
+              {projectsData.title}
+            </h2>
+          </header>
+        </Reveal>
 
         {filteredProjects.length === 0 ? (
           <div className="text-center py-12">
@@ -73,8 +53,9 @@ export function Projects({ searchQuery = "", activeFilter = "all" }: ProjectsPro
           </div>
         ) : (
           <ul className={projectGridStyles()}>
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <li key={project.id}>
+                <Reveal delay={Math.min(index * 0.08, 0.24)} className="h-full">
                 <Card className={projectCardStyles()}>
                   {/* Project Image */}
                   <figure className="relative h-48 overflow-hidden bg-gradient-to-br from-muted/50 to-muted/30">
@@ -129,19 +110,22 @@ export function Projects({ searchQuery = "", activeFilter = "all" }: ProjectsPro
                       </a>
                     </Button>
 
-                    <Button asChild size="sm" className="flex-1">
-                      <a
-                        href={project.liveUrl}
-                        target=""
-                        rel="noopener noreferrer"
-                        aria-label={`View ${project.title} live demo`}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
-                      </a>
-                    </Button>
+                    {project.liveUrl && (
+                      <Button asChild size="sm" className="flex-1">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View ${project.title} live demo`}
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
                   </CardFooter>
                 </Card>
+                </Reveal>
               </li>
             ))}
           </ul>

@@ -11,7 +11,7 @@ A modern, responsive portfolio website built with Next.js 16, React 19, TypeScri
 - ⚡ **Next.js 16 App Router** - Latest Next.js with React Server Components
 - 🎯 **Dynamic Filtering** - Search and filter projects/experience by skills and categories
 - 🔍 **SEO Optimized** - Meta tags and semantic HTML structure
-- 🎭 **Modern UI Components** - 50+ Shadcn/Radix UI components
+- 🎭 **Modern UI Components** - Shadcn/Radix UI components (only the ones in use — lean bundle)
 - 📊 **Vercel Analytics** - Built-in performance tracking
 - 🎬 **Smooth Animations** - Hover effects, transitions, and scroll animations
 - 🎨 **CVA Styling** - Class Variance Authority for consistent component variants
@@ -29,8 +29,8 @@ A modern, responsive portfolio website built with Next.js 16, React 19, TypeScri
 | **Language** | TypeScript 5.x |
 | **UI Library** | React 19.2.0 |
 | **Styling** | Tailwind CSS 4.1.9 |
-| **UI Components** | Radix UI (27+ primitives) |
-| **Component Library** | Shadcn UI (50+ components) |
+| **UI Components** | Radix UI primitives |
+| **Component Library** | Shadcn UI (badge, button, card, input, separator, textarea) |
 | **Icons** | Lucide React 0.454.0, React Icons 5.5.0 |
 | **Theme** | next-themes 0.4.6 (Dark mode default) |
 | **Animations** | CSS Transitions & Transforms |
@@ -59,7 +59,7 @@ portfolio/
 │   │   ├── Projects.tsx    # Project cards with images, tags, links
 │   │   ├── Skills.tsx      # 5 skill categories with tech logos
 │   │   └── Contact.tsx     # Contact information
-│   └── ui/                 # 50+ Shadcn UI components
+│   └── ui/                 # Shadcn UI components (only those in use)
 │
 ├── data/                   # Static JSON data files
 │   ├── hero.json           # Name, title, profile image, social links

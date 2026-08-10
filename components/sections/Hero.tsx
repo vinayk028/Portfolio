@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
 import heroData from "@/data/hero.json";
+import { SOCIAL_LINKS } from "@/lib/constants";
 import {
   heroCardStyles,
   profileImageWrapperStyles,
@@ -16,8 +18,9 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-end pb-24 justify-center px-4 bg-muted/50"
+      className="min-h-screen flex items-end pb-24 justify-center px-4 bg-muted/50 scroll-mt-20"
     >
+      <Reveal className="w-full flex justify-center">
       <Card className={heroCardStyles()}>
         <CardContent className="p-12 text-center">
           {/* Profile Image */}
@@ -46,54 +49,62 @@ export function Hero() {
 
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mt-6">
-            {/* Phone (Hover to show number) */}
-            <div className="relative group cursor-pointer">
+            {/* Phone (hover/focus shows the number, click to call) */}
+            <a
+              href={`tel:${SOCIAL_LINKS.phone.replace(/\s/g, "")}`}
+              className="relative group"
+              aria-label={`Call ${SOCIAL_LINKS.phone}`}
+            >
               <Phone className="w-6 h-6 hover:scale-110 transition-transform duration-200" />
 
               <span
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 
-                               bg-black text-white text-xs px-3 py-1 rounded 
-                               opacity-0 group-hover:opacity-100 
+                className="absolute bottom-8 left-1/2 -translate-x-1/2
+                               bg-black text-white text-xs px-3 py-1 rounded
+                               opacity-0 group-hover:opacity-100 group-focus:opacity-100
                                transition-opacity duration-200 whitespace-nowrap"
               >
-                +91 7670822528
+                {SOCIAL_LINKS.phone}
               </span>
-            </div>
+            </a>
 
             {/* Email */}
             <a
-              href="mailto:thungamittavinaykumar07@gmail.com"
+              href={`mailto:${SOCIAL_LINKS.email}`}
               className="hover:scale-110 transition-transform duration-200"
+              aria-label="Send an email"
             >
               <Mail className="w-6 h-6" />
             </a>
 
             {/* GitHub */}
             <a
-              href="https://github.com/vinayk028"
+              href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform duration-200"
+              aria-label="GitHub profile"
             >
               <Github className="w-6 h-6" />
             </a>
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/vinay-kumar-thungamitta-35668b252/"
+              href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform duration-200"
+              aria-label="LinkedIn profile"
             >
               <Linkedin className="w-6 h-6" />
             </a>
 
             {/* LeetCode */}
             <a
-              href="https://leetcode.com/u/thungamittavinaykumar07/"
+              href={SOCIAL_LINKS.leetcode}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform duration-200"
+              aria-label="LeetCode profile"
             >
               <Image
                 src="/images/Profile/leetcode.png"
@@ -106,6 +117,7 @@ export function Hero() {
           </div>
         </CardContent>
       </Card>
+      </Reveal>
     </section>
   );
 }

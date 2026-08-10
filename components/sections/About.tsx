@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { Search, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import aboutData from "@/data/about.json";
 import {
   sectionStyles,
@@ -56,11 +57,13 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
   return (
     <section id="about" className={sectionStyles({ background: "default" })}>
       <div className={sectionContainerStyles({ maxWidth: "md" })}>
-        <header>
-          <h2 className={sectionHeaderStyles()}>About Me</h2>
-        </header>
+        <Reveal>
+          <header>
+            <h2 className={sectionHeaderStyles()}>About Me</h2>
+          </header>
+        </Reveal>
 
-        <div className="space-y-8">
+        <Reveal delay={0.1} className="space-y-8">
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
             {aboutData.introduction}
           </p>
@@ -112,7 +115,7 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
 
             {/* Download Resume Button */}
             <a
-              href="/resume/Thungamitta_VinayKumar_Resume.pdf"
+              href="/resume/ThungamittaVinayKumar_Resume.pdf"
               className={resumeButtonStyles()}
               download
               aria-label="Download Resume"
@@ -121,7 +124,7 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
               Download Resume
             </a>
           </nav>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
