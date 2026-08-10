@@ -296,34 +296,6 @@ case "your-category":
 | `npm start` | Start production server |
 | `npm run lint` | ESLint code quality check |
 
----
-
-## 📄 License
-
-Open source under the **MIT License**.
-
----
-<!-- 
-## 👤 Author
-
-**Vinay Kumar**
-
-- 💼 Portfolio: [Your Website]
-- 💻 GitHub: [@yourusername](https://github.com/yourusername)
-- 💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- 📧 Email: contact@yoursite.com
-
---- -->
-
-## 🙏 Acknowledgments
-
-Built with:
-- [Next.js](https://nextjs.org/) - React Framework
-- [TypeScript](https://www.typescriptlang.org/) - Type Safety
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Shadcn UI](https://ui.shadcn.com/) - Components
-- [React Icons](https://react-icons.github.io/react-icons/) - Icon Library
-- [Vercel](https://vercel.com/) - Hosting
 
 ---
 
