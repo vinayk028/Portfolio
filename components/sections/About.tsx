@@ -115,7 +115,7 @@ export function About({ onSearch, onFilterChange }: AboutProps) {
 
             {/* Download Resume Button */}
             <a
-              href="/resume/ThungamittaVinayKumar_Resume.pdf"
+              href="/resume/VinayKumarThungamitta_Resume.pdf"
               className={resumeButtonStyles()}
               download
               aria-label="Download Resume"
