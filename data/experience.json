@@ -14,15 +14,15 @@
 
       "skills": [
         "React.js",
+        "Redux",
         "WebSocket",
         "TypeScript",
+        "REST APIs",
         "C++",
-        "LVGL",
         "Debugging",
-        "Agile Methodologies",
         "Docker",
         "RabbitMQ",
-        "Unity"
+        "Event-Driven Architecture"
       ]
     },
     {
